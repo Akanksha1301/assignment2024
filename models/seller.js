@@ -5,4 +5,5 @@ const SellerSchema = new mongoose.Schema({
     location: { lat: Number, lng: Number },
 });
 
-module.exports = mongoose.model('Seller', SellerSchema);
+const Seller = mongoose.model('Seller', SellerSchema, 'seller');
+module.exports = Seller;

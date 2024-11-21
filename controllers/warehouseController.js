@@ -1,28 +1,46 @@
-const Warehouse = require('../models/warehouse');
-const Seller=require('../models/seller')
+const mongoose=require('mongoose')
+const Seller = require('../models/Seller');
+const nearestWarehouseFinder=require('../services/nearestWarehouseFinder')
 
-const nearestWarehouseFinder = require('../services/nearestWarehouseFinder');
-
-exports.getNearestWarehouse=async(req,res)=>{
-    try{
-        const {sellerId,productId}=req.query;
-        if (!sellerId || !productId) return res.status(400).json({ error: 'Missing parameters' });
-        const sel = await Seller.findbyId(sellerId);
-        console.log(sel)
-        if (!sel) {
-            return res.status(404).json({ error: 'Seller not found' });
+exports.getNearestWarehouse = (req, res) => {
+        const { sellerId, productId } = req.query;
+        if (!sellerId || !productId) {
+            return res.status(400).json({ error: 'Missing parameters: sellerId and productId are required' });
         }
-        const sellerLocation = {
-            lat: sel.location.lat,
-            lng: sel.location.lng
-        };
-        const nearest = await nearestWarehouseFinder(sellerLocation);
-        console.log(nearest)
-        res.json({ nearest });
-        
-    }
-    catch(error){
-        res.status(500).json({ error: error.message });
-    }
+        console.log('Seller ID:', sellerId);  // Log the sellerId being used
+    //     // const sellerLocation = { lat: seller.location.lat, lng: seller.location.lng };
+    //     // const nearest = await nearestWarehouseFinder(sellerLocation);
 
+    //     // res.json({ nearest });
+    // .catch (error) {
+    //     console.error('Error finding nearest warehouse:', error.message);
+    //     res.status(500).json({ error: error.message });
+    // }
+    Seller.findById(sellerId)
+        .then((seller) => {
+            if (!seller) {
+                console.log('Seller not found:', sellerId);  // Log when seller is not found
+                return res.status(404).json({ error: 'Seller not found' });
+            }
+
+            console.log('Seller Found:', seller);  // Log the seller data if found
+
+            const sellerLocation = { lat: seller.location.lat, lng: seller.location.lng };
+            console.log('sellerLocation',sellerLocation)
+            // Use nearestWarehouseFinder to find the nearest warehouse
+            nearestWarehouseFinder(sellerLocation)
+                .then((nearest) => {
+                    console.log(nearest);
+                    res.json({ nearest });
+                })
+                .catch((error) => {
+                    console.error('Error finding nearest warehouse:', error.message);
+                    res.status(500).json({ error: error.message });
+                });
+        })
+        .catch((error) => {
+            console.error('Error fetching seller:', error.message);
+            res.status(500).json({ error: error.message });
+        });
 };
+

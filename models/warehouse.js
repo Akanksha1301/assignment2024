@@ -5,4 +5,4 @@ const WarehouseSchema = new mongoose.Schema({
     location: { lat: Number, lng: Number },
 });
 
-module.exports = mongoose.model('Warehouse', WarehouseSchema);
+module.exports = mongoose.model('Warehouse', WarehouseSchema,'warehouse');
