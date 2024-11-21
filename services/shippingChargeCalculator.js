@@ -25,7 +25,7 @@ module.exports = (warehouseId, customerId, deliverySpeed) => {
                     const weight = 10;  
                     const baseCharge = distance * rate * weight;
                     const extraCharge = deliverySpeed === 'express' ? 10 + 1.2 * weight : 10;
-
+                    console.log(baseCharge,"dsjd",extraCharge,"qeqrwqtfa")
                     return baseCharge + extraCharge;  // Return total charge
                 });
         })

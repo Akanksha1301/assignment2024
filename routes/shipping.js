@@ -1,8 +1,9 @@
 
 const express = require('express');
-const { calculateShippingCharge } = require('../controllers/shippingController');
+const { calculateShippingCharge,calculateCombinedShipping } = require('../controllers/shippingController');
 const router = express.Router();
 
 router.get('/', calculateShippingCharge);
+router.post('/calculate',calculateCombinedShipping);
 
 module.exports = router;

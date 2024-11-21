@@ -3,19 +3,12 @@ const Seller = require('../models/Seller');
 const nearestWarehouseFinder=require('../services/nearestWarehouseFinder')
 
 exports.getNearestWarehouse = (req, res) => {
-        const { sellerId, productId } = req.query;
-        if (!sellerId || !productId) {
-            return res.status(400).json({ error: 'Missing parameters: sellerId and productId are required' });
-        }
-        console.log('Seller ID:', sellerId);  // Log the sellerId being used
-    //     // const sellerLocation = { lat: seller.location.lat, lng: seller.location.lng };
-    //     // const nearest = await nearestWarehouseFinder(sellerLocation);
+    const { sellerId, productId } = req.query;
+    if (!sellerId) {
+        return res.status(400).json({ error: 'Missing parameters: sellerId and productId are required' });
+    }
+    console.log('Seller ID:', sellerId);  // Log the sellerId being used
 
-    //     // res.json({ nearest });
-    // .catch (error) {
-    //     console.error('Error finding nearest warehouse:', error.message);
-    //     res.status(500).json({ error: error.message });
-    // }
     Seller.findById(sellerId)
         .then((seller) => {
             if (!seller) {
