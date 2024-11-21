@@ -41,7 +41,13 @@ module.exports = (sellerLocation) => {  // Use a function expression
                 }
                 
             });
-            return nearest;
+            return {
+                    warehouseId: nearest._id,  // Return the _id as warehouseId
+                    warehouseLocation: {
+                        lat: nearest.location.lat,  // Latitude
+                        long: nearest.location.lng  // Longitude
+                    }
+                };
         })
         .catch((error) => {
             console.error('Error fetching warehouses:', error);

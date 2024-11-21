@@ -6,4 +6,4 @@ const CustomerSchema = new mongoose.Schema({
     location: { lat: Number, lng: Number },
 });
 
-module.exports = mongoose.model('Customer', CustomerSchema);
+module.exports = mongoose.model('Customer', CustomerSchema,'customer');
