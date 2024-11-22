@@ -24,7 +24,7 @@ Tools: MongoDB Database Tools (mongodump)
 1.  Clone the Repository:  
     ##
         git clone https://github.com/Akanksha1301/assignment2024.git
-        cd assignment
+        cd assignment2024
 
 2.  Install Dependencies
     ##
@@ -38,7 +38,7 @@ Tools: MongoDB Database Tools (mongodump)
 
 2.  Restore the dump
     ##
-        mongorestore --db my-database dump/my-database
+        mongorestore --db ecommerce dump/ecommerce
 
 3.  Verify Data
     ##
