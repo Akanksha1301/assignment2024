@@ -1,6 +1,7 @@
 const Customer = require('../models/customer');
 const Warehouse = require('../models/warehouse');
 const shippingChargeCalculator = require('../services/shippingChargeCalculator');
+//  use for calling aps internally
 const axios = require('axios');
 
 // Get the Shipping Charge for a Customer from a Warehouse 

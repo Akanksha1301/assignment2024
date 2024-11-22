@@ -9,14 +9,15 @@ module.exports = (sellerLocation) => {
 
             warehouses.forEach((warehouse) => {
                 const dist = calculateDistance(sellerLocation, warehouse.location);
-                console.log('dwed')
-                console.log('dist',dist)
+                // console.log('dist',dist)                          // distance of each warehouse
+                // console.log('warehouse id',warehouse._id)         // id of corresponding warehouse
                 if (dist < minDistance) {
                     minDistance = dist;
                     nearest = warehouse;
                 }
                 
             });
+
             
             let temp={warehouseId: nearest._id,  // Return the _id as warehouseId
                     warehouseLocation: {
