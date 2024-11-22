@@ -1,9 +1,12 @@
 const express=require('express')
+const app=express()
+//  Middleware for parsing the data
+app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
+
 const connectDB = require('./config/db');
 const warehouseRoute=require('./routes/warehouse')
 const shippingRoute=require('./routes/shipping')
-const app=express()
-app.use(express.json());
 
 
 app.use('/api/v1/warehouse',warehouseRoute);

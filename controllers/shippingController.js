@@ -22,7 +22,7 @@ exports.calculateShippingCharge = (req, res) => {
 
 //  Get the Shipping Charges for a Seller and Customer
 exports.calculateCombinedShipping = (req, res) => {
-    const { sellerId, customerId, deliverySpeed } = req.query;
+    const { sellerId, customerId, deliverySpeed } = req.body;
     console.log("sellerid: ",sellerId);
     console.log("cusId: ",customerId);
     console.log("delibe: ",deliverySpeed);
@@ -37,13 +37,13 @@ exports.calculateCombinedShipping = (req, res) => {
         .get(nearestWarehouseApiUrl)
         .then((nearestWarehouseResponse) => {
             const nearestWarehouse = nearestWarehouseResponse.data;
-
+            console.log(nearestWarehouse.nearest.warehouseId,"dewdaesaaaaaaaaaaaaaaaaaaaaa")
             // Check if nearest warehouse exists
-            if (!nearestWarehouse || !nearestWarehouse.warehouseId) {
+            if (!nearestWarehouse || !nearestWarehouse.nearest.warehouseId) {
                 throw new Error('No nearest warehouse found');
             }
 
-            const warehouseId = nearestWarehouse.warehouseId;
+            const warehouseId = nearestWarehouse.nearest.warehouseId;
 
             // Call the shipping charge API
             const shippingChargeApiUrl = `http://localhost:8000/api/v1/shipping-charge?warehouseId=${warehouseId}&customerId=${customerId}&deliverySpeed=${deliverySpeed}`;
