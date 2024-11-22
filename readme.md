@@ -14,12 +14,14 @@ Database: MongoDB Compass
 Tools: MongoDB Database Tools (mongodump)
 
 ### Prerequisites
-
 1.  Install Node.js  https://nodejs.org/en/download/package-manager
 2.  Install MongoDB Compass or use MongoDB Atlas (Cloud MongoDB).
 3.  Install MongoDB Database Tools for mongodump and mongorestore if needed:
         Download MongoDB Tools.
 
+### Installation
+1.  Clone the Repository:   
+    ```git clone https://github.com/Akanksha1301/assignment2024.git```
 
 ### API Endpoints
 
