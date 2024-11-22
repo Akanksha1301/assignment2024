@@ -34,7 +34,7 @@ Tools: MongoDB Database Tools (mongodump)
     sellerId: ID of the seller,
     productId: ID of the product
 
-    http request:http://localhost:8000/api/v1/warehouse/nearest?sellerId=673f5aadc9065b3ab96a1cd7&productId=673f5b83c9065b3ab96a1cdf
+    http request:   http://localhost:8000/api/v1/warehouse/nearest?sellerId=673f5aadc9065b3ab96a1cd7&productId=673f5b83c9065b3ab96a1cdf
 
 
 2. **Shipping Charge API**
@@ -49,7 +49,7 @@ Tools: MongoDB Database Tools (mongodump)
     customerId: ID of the customer.
     deliverySpeed: Speed of delivery (standard or express).
 
-    http request:http://localhost:8000/api/v1/shipping-charge?warehouseId=673f5925c9065b3ab96a1cc8&customerId=673f5963c9065b3ab96a1ccc&deliverySpeed=express
+    http request:   http://localhost:8000/api/v1/shipping-charge?warehouseId=673f5925c9065b3ab96a1cc8&customerId=673f5963c9065b3ab96a1ccc&deliverySpeed=express
 
 3. **Combined Shipping API**
     
@@ -63,7 +63,7 @@ Tools: MongoDB Database Tools (mongodump)
     customerId: ID of the customer.
     deliverySpeed: Speed of delivery (standard or express).
 
-    http request:http://localhost:8000/api/v1/shipping-charge/calculate
+    http request:   http://localhost:8000/api/v1/shipping-charge/calculate
 
 ### Testing the APIs
    Use Postman or Curl to test the APIs.
