@@ -12,17 +12,48 @@ Includes sample MongoDB data for quick setup and testing.
 Backend: Node.js, Express.js
 Database: MongoDB Compass
 Tools: MongoDB Database Tools (mongodump)
+### Setup Instructions
 
-### Prerequisites
+#### Prerequisites
 1.  Install Node.js  https://nodejs.org/en/download/package-manager
 2.  Install MongoDB Compass or use MongoDB Atlas (Cloud MongoDB).
 3.  Install MongoDB Database Tools for mongodump and mongorestore if needed:
         Download MongoDB Tools.
 
-### Installation
+#### Installation
 1.  Clone the Repository:  
     ##
-            git clone https://github.com/Akanksha1301/assignment2024.git
+        git clone https://github.com/Akanksha1301/assignment2024.git
+        cd assignment
+
+2.  Install Dependencies
+    ##
+        npm install express,mongodb,mongoose
+        npm install --save-dev nodemon
+
+#### Import sample data
+1.  Start MonoDB
+    ##
+        mongo
+
+2.  Restore the dump
+    ##
+        mongorestore --db my-database dump/my-database
+
+3.  Verify Data
+    ##
+        mongo
+        use ecommerce
+        db.warehouse.find().pretty()
+        db.customer.find().pretty()
+
+#### Run the Application
+    Start the development server
+    ##
+        nodemon start
+    The server will run on http://localhost:8000.
+
+        
 
 ### API Endpoints
 
