@@ -1,0 +1,48 @@
+Test case for API: GET /api/v1/warehouse/nearest
+
+Valid testcase
+parameter: ?sellerId=673f5aadc9065b3ab9&productId=0     expected output:Returns the nearest warehouse with warehouseId and warehouseLocation.
+
+Missing sellerId
+parameter:  ?productId=0                                expected output: Returns 400 Bad Request with message: "Missing parameters: sellerId is required".
+
+Seller ID not found
+parameter:  ?sellerId=123&productId=0                   expected output: Returns 404 Not Found with message: "Seller not found".
+
+No warehouses available
+parameter:  validId but warehouse db in empty           expected output: Returns 400 Bad Request with message: "Missing parameters: sellerId is required".
+
+Invalid sellerId format
+parameter:  ?sellerId=65th7                             expected output: Returns 400 Bad Request with message: "Missing parameters: sellerId is required".
+
+
+Test Case for API: GET /api/v1/shipping-charge 
+
+Valid testcase
+parameter: ?warehouseId=673f5925c9065b3ab96a1cc8&customerId=673f5963c9065b3ab96a1ccc&deliverySpeed=express     expected output:Returns shipping charge as a number.
+
+Missing warehouseId
+parameter:  ?customerId=673f5963c9065b3ab96a1ccc&deliverySpeed=express                                         expected output: Returns 400 Bad Request with message: "Missing parameters".
+
+Missing customerId
+parameter:  ?warehouseId=673f5925c9065b3ab96a1cc8&deliverySpeed=express                                        expected output: Returns 400 Bad Request with message: "Missing parameters".
+
+Invalid deliverySpeed
+parameter:  ?warehouseId=673f5925c9065b3ab96a1cc8&customerId=673f5963c9065b3ab96a1ccc                          expected output: Returns 400 Bad Request with message: "Missing parameters".
+
+Invalid warehouseId format
+parameter:   ?warehouseId=673f5925c9ab96a1cc8&customerId=673f5963c9065b3ab96a1ccc&deliverySpeed=express                          expected output: Returns 400 Bad Request with message: "Error fetching warehouses".
+
+Test Case for API POST /api/v1/shipping-charge/calculate  
+
+Valid request	
+parameter: ?sellerId=673f5aadc9065b3ab9&customerId=673f5963c9065b3ab96a1ccc&deliverySpeed=express	           expected output: Returns combined response with nearestWarehouse and shippingCharge.
+
+Missing warehouseId
+parameter:  ?customerId=673f5963c9065b3ab96a1ccc&deliverySpeed=express                                         expected output: Returns 400 Bad Request with message: "Missing parameters".
+
+Missing customerId
+parameter:  ?warehouseId=673f5925c9065b3ab96a1cc8&deliverySpeed=express                                        expected output: Returns 400 Bad Request with message: "Missing parameters".
+
+Invalid deliverySpeed
+parameter:  ?warehouseId=673f5925c9065b3ab96a1cc8&customerId=673f5963c9065b3ab96a1ccc                          expected output: Returns 400 Bad Request with message: "Missing parameters".
