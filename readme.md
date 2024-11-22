@@ -48,10 +48,10 @@ Tools: MongoDB Database Tools (mongodump)
         db.customer.find().pretty()
 
 #### Run the Application
-    Start the development server
+1.  Start the development server
     ##
         nodemon start
-    The server will run on http://localhost:8000.
+The server will run on http://localhost:8000.
 
         
 
