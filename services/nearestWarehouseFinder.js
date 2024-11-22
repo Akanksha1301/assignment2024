@@ -1,10 +1,11 @@
 const { calculateDistance } = require('./distanceCalculator');
 const Warehouse = require('../models/warehouse'); 
 
+// calculate the minimum distance among all the possible distances
 module.exports = (sellerLocation) => { 
     return Warehouse.find()
         .then((warehouses) => {
-            let nearest = null;
+            let nearest = null;   // store the entity with minimum distance 
             let minDistance = Infinity;
 
             warehouses.forEach((warehouse) => {

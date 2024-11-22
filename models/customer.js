@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// Creating the customer Schema using Mongoose
 const CustomerSchema = new mongoose.Schema({
     name: String,
     phone: String,

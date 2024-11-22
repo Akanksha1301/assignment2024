@@ -18,6 +18,7 @@ exports.getNearestWarehouse = (req, res) => {
 
             console.log('Seller Found:', seller);  // Log the seller data if found
 
+            // fetch location using requet parameters
             const sellerLocation = { lat: seller.location.lat, lng: seller.location.lng };
             console.log('sellerLocation',sellerLocation)
             // Use nearestWarehouseFinder to find the nearest warehouse
