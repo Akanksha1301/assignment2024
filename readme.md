@@ -1,4 +1,4 @@
-# **E-Commerce Shipping Charge Estimator **
+# E-Commerce Shipping Charge Estimator 
 It uses Node.js, Express, and MongoDB to manage the backend and database. 
 The project includes a combined API for seamless integration of functionalities.
 
@@ -15,10 +15,10 @@ Tools: MongoDB Database Tools (mongodump)
 
 ### Prerequisites
 
-Install Node.js  https://nodejs.org/en/download/package-manager
-Install MongoDB Compass or use MongoDB Atlas (Cloud MongoDB).
-Install MongoDB Database Tools for mongodump and mongorestore if needed:
-Download MongoDB Tools.
+1.  Install Node.js  https://nodejs.org/en/download/package-manager
+2.  Install MongoDB Compass or use MongoDB Atlas (Cloud MongoDB).
+3.  Install MongoDB Database Tools for mongodump and mongorestore if needed:
+        Download MongoDB Tools.
 
 
 ### API Endpoints
@@ -31,7 +31,7 @@ Download MongoDB Tools.
 
     Query Parameters:
 
-    sellerId: ID of the seller.
+    sellerId: ID of the seller,
     productId: ID of the product
 
     http request:http://localhost:8000/api/v1/warehouse/nearest?sellerId=673f5aadc9065b3ab96a1cd7&productId=673f5b83c9065b3ab96a1cdf
