@@ -58,46 +58,38 @@ The server will run on http://localhost:8000.
 ### API Endpoints
 
 1. **Nearest Warehouse API**
-
-    Endpoint: /api/v1/warehouse/nearest
-    Method: GET
-    Description: Finds the nearest warehouse for a seller.
-
-    Query Parameters:
-
-    sellerId: ID of the seller,
-    productId: ID of the product
-
-    http request:   http://localhost:8000/api/v1/warehouse/nearest?sellerId=673f5aadc9065b3ab96a1cd7&productId=673f5b83c9065b3ab96a1cdf
-
+    - **Endpoint**: /api/v1/warehouse/nearest
+    - **Method**: `GET`
+    - **Description**: Finds the nearest warehouse for a seller.
+    - **Query Parameters**:
+    - `sellerId`: The ID of the seller (required).
+    - `productId`: The ID of the product .
+    - `deliverySpeed`: Delivery speed, either `standard` or `express` (required).
+    
+    - `http request`:   http://localhost:8000/api/v1/warehouse/nearest?sellerId=673f5aadc9065b3ab96a1cd7&productId=673f5b83c9065b3ab96a1cdf
 
 2. **Shipping Charge API**
-
-    Endpoint: /api/v1/shipping-charge
-    Method: GET
-    Description: Calculates shipping charges for a customer.
-
-    Query Parameters:
-
-    warehouseId: ID of the warehouse.
-    customerId: ID of the customer.
-    deliverySpeed: Speed of delivery (standard or express).
-
-    http request:   http://localhost:8000/api/v1/shipping-charge?warehouseId=673f5925c9065b3ab96a1cc8&customerId=673f5963c9065b3ab96a1ccc&deliverySpeed=express
+    - **Endpoint**: /api/v1/shipping-charge
+    - **Method**: `GET`
+    - **Description**: Calculates shipping charges for a customer.
+    - **Query Parameters**:
+    - `warehouseId`: The ID of the warehouse (required).
+    - `customerId`: The ID of the customer (required)  .
+    - `deliverySpeed`: Delivery speed, either `standard` or `express` (required).
+    
+    - `http request`:   http://localhost:8000/api/v1/shipping-charge?warehouseId=673f5925c9065b3ab96a1cc8&customerId=673f5963c9065b3ab96a1ccc&deliverySpeed=express
 
 3. **Combined Shipping API**
+
+    - **Endpoint**: /api/v1/shipping-charge/calculate
+    - **Method**: `POST`
+    - **Description**: Combines nearest warehouse retrieval and shipping charge calculation.
+    - **Query Parameters**:
+    - `warehouseId`: The ID of the warehouse (required).
+    - `customerId`: The ID of the customer (required)  .
+    - `deliverySpeed`: Delivery speed, either `standard` or `express` (required).
     
-    Endpoint: /api/v1/shipping-charge/calculate
-    Method: GET
-    Description: Combines nearest warehouse retrieval and shipping charge calculation.
-
-    Query Parameters:
-
-    sellerId: ID of the seller.
-    customerId: ID of the customer.
-    deliverySpeed: Speed of delivery (standard or express).
-
-    http request:   http://localhost:8000/api/v1/shipping-charge/calculate
+    - `http request`:   http://localhost:8000/api/v1/shipping-charge/calculate
 
 ### Testing the APIs
    Use Postman or Curl to test the APIs.
