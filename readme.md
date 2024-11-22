@@ -20,8 +20,9 @@ Tools: MongoDB Database Tools (mongodump)
         Download MongoDB Tools.
 
 ### Installation
-1.  Clone the Repository:   
-    ```git clone https://github.com/Akanksha1301/assignment2024.git```
+1.  Clone the Repository:  
+    ##
+            git clone https://github.com/Akanksha1301/assignment2024.git
 
 ### API Endpoints
 
